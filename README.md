@@ -20,3 +20,12 @@ no
                 Čo možno upraviť, to je spraviť objekt plocha, kde budú objekty ako RECT pohromade.
                 
                 
+                
+
+Su dve možnosti ako to spraviť
+                
+1. Synchronne. Pravdepodobne komplikovanejšia možnosť. ale vhodné pre neobmedzený počet klientov. keby teoreticky túto aplikáciu používalo
+miliarda zariadení.  Šlo by to. len trebalo by riešiť veľa synchronizačných problémov
+2. Asynchrónne. Tu je nápad taký, že pre každý soket bude bežať osobitné vlákno. a toto vlákno bude cez mutex ukladať dáta buď do databázy,
+alebo v tomto prípade do súboru. vždy sa locknú ostatné vlákna od prístupu k databáze. Uloží sa do súboru správa ktorá prišla od niektorého z klientov.
+
